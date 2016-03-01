@@ -1,4 +1,4 @@
-# DiceExpression
+# DiceExpression [![Build Status](https://travis-ci.org/marcoconti83/DiceExpression.svg?branch=master)](https://travis-ci.org/marcoconti83/DiceExpression)
 
 A Swift library to simulate dice rolls, as in board games or pen-and-paper role playing games. Available as a framework for iOS and OSX, Carthage compatible.
 
