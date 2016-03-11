@@ -24,6 +24,9 @@
 		54B181CE1C863B820089C077 /* DiceExpressionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54134BD11C85832E00556F55 /* DiceExpressionTests.swift */; };
 		54B181CF1C863B820089C077 /* ResultWithLogTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54134BD21C85832E00556F55 /* ResultWithLogTests.swift */; };
 		54B181D11C863C430089C077 /* TestInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 54B181D01C863C430089C077 /* TestInfo.plist */; };
+		54E38A0F1C9206D100EF9F89 /* Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E38A0E1C9206D100EF9F89 /* Random.swift */; };
+		54E38A101C9206D100EF9F89 /* Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E38A0E1C9206D100EF9F89 /* Random.swift */; };
+		54E38A121C92320A00EF9F89 /* RandomTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E38A111C92320A00EF9F89 /* RandomTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +62,8 @@
 		54B181D01C863C430089C077 /* TestInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TestInfo.plist; sourceTree = "<group>"; };
 		54B181D41C863E840089C077 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		54B181D51C863E940089C077 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		54E38A0E1C9206D100EF9F89 /* Random.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Random.swift; sourceTree = "<group>"; };
+		54E38A111C92320A00EF9F89 /* RandomTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +129,7 @@
 				54134BCB1C85832300556F55 /* DiceExpression.swift */,
 				54134BCC1C85832300556F55 /* ResultWithLog.swift */,
 				54134BB31C85826A00556F55 /* DiceExpression.h */,
+				54E38A0E1C9206D100EF9F89 /* Random.swift */,
 				54134BB51C85826A00556F55 /* Info.plist */,
 			);
 			path = Source;
@@ -136,6 +142,7 @@
 				54134BD01C85832E00556F55 /* CollectionsTests.swift */,
 				54134BD11C85832E00556F55 /* DiceExpressionTests.swift */,
 				54134BD21C85832E00556F55 /* ResultWithLogTests.swift */,
+				54E38A111C92320A00EF9F89 /* RandomTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -316,6 +323,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				54134BCE1C85832300556F55 /* DiceExpression.swift in Sources */,
+				54E38A0F1C9206D100EF9F89 /* Random.swift in Sources */,
 				54134BCF1C85832300556F55 /* ResultWithLog.swift in Sources */,
 				54134BCD1C85832300556F55 /* Collections.swift in Sources */,
 			);
@@ -325,6 +333,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				54E38A121C92320A00EF9F89 /* RandomTests.swift in Sources */,
 				54134BD71C85833F00556F55 /* DiceExpressionTests.swift in Sources */,
 				54134BD81C85833F00556F55 /* ResultWithLogTests.swift in Sources */,
 				54134BD61C85833F00556F55 /* CollectionsTests.swift in Sources */,
@@ -336,6 +345,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				54B181CA1C863B7C0089C077 /* DiceExpression.swift in Sources */,
+				54E38A101C9206D100EF9F89 /* Random.swift in Sources */,
 				54B181CB1C863B7C0089C077 /* ResultWithLog.swift in Sources */,
 				54B181C91C863B7C0089C077 /* Collections.swift in Sources */,
 			);
