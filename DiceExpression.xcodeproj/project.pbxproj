@@ -24,6 +24,10 @@
 		54B181CE1C863B820089C077 /* DiceExpressionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54134BD11C85832E00556F55 /* DiceExpressionTests.swift */; };
 		54B181CF1C863B820089C077 /* ResultWithLogTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54134BD21C85832E00556F55 /* ResultWithLogTests.swift */; };
 		54B181D11C863C430089C077 /* TestInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 54B181D01C863C430089C077 /* TestInfo.plist */; };
+		54D7C7B61D44F8A8000E1522 /* RandomTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D7C7B51D44F8A8000E1522 /* RandomTable.swift */; };
+		54D7C7B71D44F8AA000E1522 /* RandomTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D7C7B51D44F8A8000E1522 /* RandomTable.swift */; };
+		54D7C7B91D44FC74000E1522 /* RandomTableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D7C7B81D44FC74000E1522 /* RandomTableTests.swift */; };
+		54D7C7BA1D44FC74000E1522 /* RandomTableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D7C7B81D44FC74000E1522 /* RandomTableTests.swift */; };
 		54E38A0F1C9206D100EF9F89 /* Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E38A0E1C9206D100EF9F89 /* Random.swift */; };
 		54E38A101C9206D100EF9F89 /* Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E38A0E1C9206D100EF9F89 /* Random.swift */; };
 		54E38A121C92320A00EF9F89 /* RandomTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E38A111C92320A00EF9F89 /* RandomTests.swift */; };
@@ -62,6 +66,8 @@
 		54B181D01C863C430089C077 /* TestInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TestInfo.plist; sourceTree = "<group>"; };
 		54B181D41C863E840089C077 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		54B181D51C863E940089C077 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		54D7C7B51D44F8A8000E1522 /* RandomTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomTable.swift; sourceTree = "<group>"; };
+		54D7C7B81D44FC74000E1522 /* RandomTableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomTableTests.swift; sourceTree = "<group>"; };
 		54E38A0E1C9206D100EF9F89 /* Random.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Random.swift; sourceTree = "<group>"; };
 		54E38A111C92320A00EF9F89 /* RandomTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -130,6 +136,7 @@
 				54134BCC1C85832300556F55 /* ResultWithLog.swift */,
 				54134BB31C85826A00556F55 /* DiceExpression.h */,
 				54E38A0E1C9206D100EF9F89 /* Random.swift */,
+				54D7C7B51D44F8A8000E1522 /* RandomTable.swift */,
 				54134BB51C85826A00556F55 /* Info.plist */,
 			);
 			path = Source;
@@ -143,6 +150,7 @@
 				54134BD11C85832E00556F55 /* DiceExpressionTests.swift */,
 				54134BD21C85832E00556F55 /* ResultWithLogTests.swift */,
 				54E38A111C92320A00EF9F89 /* RandomTests.swift */,
+				54D7C7B81D44FC74000E1522 /* RandomTableTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -323,6 +331,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				54134BCE1C85832300556F55 /* DiceExpression.swift in Sources */,
+				54D7C7B61D44F8A8000E1522 /* RandomTable.swift in Sources */,
 				54E38A0F1C9206D100EF9F89 /* Random.swift in Sources */,
 				54134BCF1C85832300556F55 /* ResultWithLog.swift in Sources */,
 				54134BCD1C85832300556F55 /* Collections.swift in Sources */,
@@ -335,6 +344,7 @@
 			files = (
 				54E38A121C92320A00EF9F89 /* RandomTests.swift in Sources */,
 				54134BD71C85833F00556F55 /* DiceExpressionTests.swift in Sources */,
+				54D7C7B91D44FC74000E1522 /* RandomTableTests.swift in Sources */,
 				54134BD81C85833F00556F55 /* ResultWithLogTests.swift in Sources */,
 				54134BD61C85833F00556F55 /* CollectionsTests.swift in Sources */,
 			);
@@ -345,6 +355,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				54B181CA1C863B7C0089C077 /* DiceExpression.swift in Sources */,
+				54D7C7B71D44F8AA000E1522 /* RandomTable.swift in Sources */,
 				54E38A101C9206D100EF9F89 /* Random.swift in Sources */,
 				54B181CB1C863B7C0089C077 /* ResultWithLog.swift in Sources */,
 				54B181C91C863B7C0089C077 /* Collections.swift in Sources */,
@@ -356,6 +367,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				54B181CE1C863B820089C077 /* DiceExpressionTests.swift in Sources */,
+				54D7C7BA1D44FC74000E1522 /* RandomTableTests.swift in Sources */,
 				54B181CD1C863B820089C077 /* CollectionsTests.swift in Sources */,
 				54B181CF1C863B820089C077 /* ResultWithLogTests.swift in Sources */,
 			);

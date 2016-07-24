@@ -190,7 +190,7 @@ private enum Sign : String  {
 private enum DiceExpressionComponent {
     
     /// A proper dice roll, such as 3d6
-    case Dice(sides: UInt, repetitions: UInt)
+    case Dice(sides: UInt32, repetitions: UInt)
     
     /// A constant int value
     case Constant(value: Int)
@@ -201,7 +201,7 @@ private enum DiceExpressionComponent {
         case let .Dice(sides, repetitions):
             var total = 0
             for _ in 0..<repetitions {
-                total += Int(arc4random_uniform(UInt32(sides)))+1
+                total += Int(arc4random_uniform(sides))+1
             }
             return total
         case let .Constant(value):
@@ -220,7 +220,7 @@ private enum DiceExpressionComponent {
             if(splitted.count != 2) {
                 return nil
             }
-            if let sides = UInt(splitted[0]), let repetitions = UInt(splitted[1]) {
+            if let sides = UInt32(splitted[0]), let repetitions = UInt(splitted[1]) {
                 self = .Dice(sides: sides, repetitions: repetitions)
                 return
             }
