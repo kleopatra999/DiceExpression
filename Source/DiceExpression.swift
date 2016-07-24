@@ -222,8 +222,8 @@ enum DiceExpressionComponent {
             if(splitted.count != 2) {
                 return nil
             }
-            if let sides = UInt32(splitted[0]), let repetitions = UInt32(splitted[1]) {
-                self = .Dice(faces: sides, repetitions: repetitions)
+            if let faces = UInt32(splitted[1]), let repetitions = UInt32(splitted[0]) {
+                self = .Dice(faces: faces, repetitions: repetitions)
                 return
             }
             else {
