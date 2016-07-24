@@ -50,7 +50,7 @@ the two results added. The final result varies between 2 and 12.
 final result varies between 11 and 30.
 */
 
-public struct DiceExpression : CustomStringConvertible {
+public struct DiceExpression : CustomStringConvertible, Rollable {
     
     /// The expression in string form (e.g. "1d10+4")
     public var description : String { return components.expression }
