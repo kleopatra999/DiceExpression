@@ -28,6 +28,12 @@
 		54D7C7B71D44F8AA000E1522 /* RandomTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D7C7B51D44F8A8000E1522 /* RandomTable.swift */; };
 		54D7C7B91D44FC74000E1522 /* RandomTableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D7C7B81D44FC74000E1522 /* RandomTableTests.swift */; };
 		54D7C7BA1D44FC74000E1522 /* RandomTableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D7C7B81D44FC74000E1522 /* RandomTableTests.swift */; };
+		54D7C7BC1D4507EB000E1522 /* Dice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D7C7BB1D4507EB000E1522 /* Dice.swift */; };
+		54D7C7BD1D4507EB000E1522 /* Dice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D7C7BB1D4507EB000E1522 /* Dice.swift */; };
+		54D7C7BF1D450886000E1522 /* Rollable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D7C7BE1D450886000E1522 /* Rollable.swift */; };
+		54D7C7C01D450886000E1522 /* Rollable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D7C7BE1D450886000E1522 /* Rollable.swift */; };
+		54D7C7D51D450F81000E1522 /* DiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D7C7D41D450F81000E1522 /* DiceTests.swift */; };
+		54D7C7D61D450F81000E1522 /* DiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D7C7D41D450F81000E1522 /* DiceTests.swift */; };
 		54E38A0F1C9206D100EF9F89 /* Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E38A0E1C9206D100EF9F89 /* Random.swift */; };
 		54E38A101C9206D100EF9F89 /* Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E38A0E1C9206D100EF9F89 /* Random.swift */; };
 		54E38A121C92320A00EF9F89 /* RandomTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E38A111C92320A00EF9F89 /* RandomTests.swift */; };
@@ -68,6 +74,9 @@
 		54B181D51C863E940089C077 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		54D7C7B51D44F8A8000E1522 /* RandomTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomTable.swift; sourceTree = "<group>"; };
 		54D7C7B81D44FC74000E1522 /* RandomTableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomTableTests.swift; sourceTree = "<group>"; };
+		54D7C7BB1D4507EB000E1522 /* Dice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dice.swift; sourceTree = "<group>"; };
+		54D7C7BE1D450886000E1522 /* Rollable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rollable.swift; sourceTree = "<group>"; };
+		54D7C7D41D450F81000E1522 /* DiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiceTests.swift; sourceTree = "<group>"; };
 		54E38A0E1C9206D100EF9F89 /* Random.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Random.swift; sourceTree = "<group>"; };
 		54E38A111C92320A00EF9F89 /* RandomTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -132,11 +141,13 @@
 			isa = PBXGroup;
 			children = (
 				54134BCA1C85832300556F55 /* Collections.swift */,
+				54D7C7BB1D4507EB000E1522 /* Dice.swift */,
+				54D7C7BE1D450886000E1522 /* Rollable.swift */,
 				54134BCB1C85832300556F55 /* DiceExpression.swift */,
 				54134BCC1C85832300556F55 /* ResultWithLog.swift */,
-				54134BB31C85826A00556F55 /* DiceExpression.h */,
 				54E38A0E1C9206D100EF9F89 /* Random.swift */,
 				54D7C7B51D44F8A8000E1522 /* RandomTable.swift */,
+				54134BB31C85826A00556F55 /* DiceExpression.h */,
 				54134BB51C85826A00556F55 /* Info.plist */,
 			);
 			path = Source;
@@ -151,6 +162,7 @@
 				54134BD21C85832E00556F55 /* ResultWithLogTests.swift */,
 				54E38A111C92320A00EF9F89 /* RandomTests.swift */,
 				54D7C7B81D44FC74000E1522 /* RandomTableTests.swift */,
+				54D7C7D41D450F81000E1522 /* DiceTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -334,6 +346,8 @@
 				54D7C7B61D44F8A8000E1522 /* RandomTable.swift in Sources */,
 				54E38A0F1C9206D100EF9F89 /* Random.swift in Sources */,
 				54134BCF1C85832300556F55 /* ResultWithLog.swift in Sources */,
+				54D7C7BF1D450886000E1522 /* Rollable.swift in Sources */,
+				54D7C7BC1D4507EB000E1522 /* Dice.swift in Sources */,
 				54134BCD1C85832300556F55 /* Collections.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -346,6 +360,7 @@
 				54134BD71C85833F00556F55 /* DiceExpressionTests.swift in Sources */,
 				54D7C7B91D44FC74000E1522 /* RandomTableTests.swift in Sources */,
 				54134BD81C85833F00556F55 /* ResultWithLogTests.swift in Sources */,
+				54D7C7D51D450F81000E1522 /* DiceTests.swift in Sources */,
 				54134BD61C85833F00556F55 /* CollectionsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -358,6 +373,8 @@
 				54D7C7B71D44F8AA000E1522 /* RandomTable.swift in Sources */,
 				54E38A101C9206D100EF9F89 /* Random.swift in Sources */,
 				54B181CB1C863B7C0089C077 /* ResultWithLog.swift in Sources */,
+				54D7C7C01D450886000E1522 /* Rollable.swift in Sources */,
+				54D7C7BD1D4507EB000E1522 /* Dice.swift in Sources */,
 				54B181C91C863B7C0089C077 /* Collections.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -369,6 +386,7 @@
 				54B181CE1C863B820089C077 /* DiceExpressionTests.swift in Sources */,
 				54D7C7BA1D44FC74000E1522 /* RandomTableTests.swift in Sources */,
 				54B181CD1C863B820089C077 /* CollectionsTests.swift in Sources */,
+				54D7C7D61D450F81000E1522 /* DiceTests.swift in Sources */,
 				54B181CF1C863B820089C077 /* ResultWithLogTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

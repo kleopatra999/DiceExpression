@@ -110,7 +110,7 @@ public func -(lhs: DiceExpression, rhs: DiceExpression) -> DiceExpression {
 // MARK: - Private implementation
 
 /// A sign and a die roll
-private struct SignedDiceExpressionComponent {
+struct SignedDiceExpressionComponent {
     let sign : Sign
     let component: DiceExpressionComponent
 }
@@ -129,7 +129,7 @@ extension SequenceType where Generator.Element == SignedDiceExpressionComponent 
 extension DiceExpression {
     
     /// Initializes from already parsed signed dice expression components
-    private init(tokens: [SignedDiceExpressionComponent]) {
+    init(tokens: [SignedDiceExpressionComponent]) {
         self.components = tokens
     }
 }
@@ -161,7 +161,7 @@ private func parseSignAndRollTokens(array: [String]) throws -> [SignedDiceExpres
 }
 
 /// Operations
-private enum Sign : String  {
+enum Sign : String  {
     case Plus = "+"
     case Minus = "-"
     
@@ -187,10 +187,10 @@ private enum Sign : String  {
 }
 
 /// An individual token inside a dice expression
-private enum DiceExpressionComponent {
+enum DiceExpressionComponent {
     
     /// A proper dice roll, such as 3d6
-    case Dice(sides: UInt32, repetitions: UInt)
+    case Dice(faces: UInt32, repetitions: UInt32)
     
     /// A constant int value
     case Constant(value: Int)
@@ -198,10 +198,12 @@ private enum DiceExpressionComponent {
     /// Roll and returns result
     func roll() -> Int {
         switch(self) {
-        case let .Dice(sides, repetitions):
+        case let .Dice(faces, repetitions):
             var total = 0
             for _ in 0..<repetitions {
-                total += Int(arc4random_uniform(sides))+1
+                if faces > 0 {
+                    total += Int(arc4random_uniform(faces))+1
+                }
             }
             return total
         case let .Constant(value):
@@ -220,8 +222,8 @@ private enum DiceExpressionComponent {
             if(splitted.count != 2) {
                 return nil
             }
-            if let sides = UInt32(splitted[0]), let repetitions = UInt(splitted[1]) {
-                self = .Dice(sides: sides, repetitions: repetitions)
+            if let sides = UInt32(splitted[0]), let repetitions = UInt32(splitted[1]) {
+                self = .Dice(faces: sides, repetitions: repetitions)
                 return
             }
             else {
@@ -232,8 +234,8 @@ private enum DiceExpressionComponent {
     
     var description : String {
         switch(self) {
-        case let .Dice(sides, repetitions):
-            return "\(sides)d\(repetitions)"
+        case let .Dice(faces, repetitions):
+            return "\(faces)d\(repetitions)"
         case let .Constant(value):
             return "\(value)"
         }
