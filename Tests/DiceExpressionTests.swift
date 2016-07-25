@@ -54,7 +54,7 @@ extension DiceExpression {
 }
 
 
-
+// MARK: - Rolls
 class DiceExpressionTests: XCTestCase {
     
     func testThatItRollsAConstantPositiveExpression() {
@@ -174,7 +174,7 @@ class DiceExpressionTests: XCTestCase {
 }
 
 
-// MARK: Operations
+// MARK: - Operations
 extension DiceExpressionTests {
     
     func testThatItAddsTwoExpressions() {
@@ -204,6 +204,20 @@ extension DiceExpressionTests {
         XCTAssertEqual(result.description, "13-4-2+3")
         XCTAssertEqual(result.roll().result, 10)
     }
+}
 
+// MARK: - Description 
+extension DiceExpressionTests {
+    
+    func testThatTheDescriptionMatches() {
+        
+        for expr in ["1d6", "3d6+2", "1d8-1d4+4+4d20"] {
+            guard let diceExpression = try? DiceExpression(expr) else {
+                XCTFail(expr)
+                return
+            }
+            XCTAssertEqual(expr, diceExpression.description)
+        }
+    }
 }
 

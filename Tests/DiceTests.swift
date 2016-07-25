@@ -140,3 +140,19 @@ extension DiceTests {
         }
     }
 }
+
+// MARK: - Description
+extension DiceTests {
+    
+    func testThatTheDescriptionMatches() {
+        XCTAssertEqual("1d2", D2.description)
+        XCTAssertEqual("1d4", D4.description)
+        XCTAssertEqual("1d6", D6.description)
+        XCTAssertEqual("1d8", D8.description)
+        XCTAssertEqual("1d10", D10.description)
+        XCTAssertEqual("1d12", D12.description)
+        XCTAssertEqual("1d20", D20.description)
+        XCTAssertEqual("1d100", D100.description)
+        XCTAssertEqual("3d6", Dice(faces: 6, repetitions: 3).description)
+    }
+}

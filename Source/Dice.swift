@@ -27,7 +27,7 @@
 import Foundation
 
 /// A die with faces, which can be rolled multiple times
-public struct Dice : Rollable {
+public struct Dice : Rollable, CustomStringConvertible {
     
     /// Number of faces on the die (e.g. 6 for a cubic, 1-to-6 die)
     public let faces: UInt32
@@ -53,6 +53,10 @@ public struct Dice : Rollable {
     
     public func roll() -> ResultWithLog<Int> {
         return self.expression.roll()
+    }
+    
+    public var description: String {
+        return self.expression.description
     }
 }
 

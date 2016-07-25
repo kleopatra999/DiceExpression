@@ -235,7 +235,7 @@ enum DiceExpressionComponent {
     var description : String {
         switch(self) {
         case let .Dice(faces, repetitions):
-            return "\(faces)d\(repetitions)"
+            return "\(repetitions)d\(faces)"
         case let .Constant(value):
             return "\(value)"
         }
