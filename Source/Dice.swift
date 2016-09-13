@@ -46,7 +46,7 @@ public struct Dice : Rollable, CustomStringConvertible {
         self.expression = DiceExpression(tokens: [
             SignedDiceExpressionComponent(
                 sign: Sign.Plus,
-                component: DiceExpressionComponent.Dice(faces: self.faces, repetitions: self.repetitions
+                component: DiceExpressionComponent.dice(faces: self.faces, repetitions: self.repetitions
                 ))
             ])
     }

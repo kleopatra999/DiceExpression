@@ -36,21 +36,24 @@ class CollectionsTests: XCTestCase {
         
         // when
         let result = try! sut.groupedArray(3)
-        
-        // then
-        XCTAssertEqual(result, [[1,2,3],[4,5,6]])
+
+        zip(result, [[1,2,3],[4,5,6]]).forEach {
+            XCTAssertEqual($0.1, $0.0)
+        }
     }
     
     func testThatAnArraySliceIsGrouped() {
         
         // given
-        let sut = ArraySlice<String>(count: 6, repeatedValue: "a")
+        let sut = ArraySlice<String>(repeating: "a", count: 6)
         
         // when
         let result = try! sut.groupedArray(2)
         
         // then
-        XCTAssertEqual(result, [["a","a"],["a","a"],["a","a"]])
+        zip(result, [["a","a"],["a","a"],["a","a"]]).forEach {
+            XCTAssertEqual($0.1, $0.0)
+        }
     }
     
     func testThatItThrowsIfTheContainerSizeIsNotAMultipleOfTheGroupSize() {
@@ -60,10 +63,10 @@ class CollectionsTests: XCTestCase {
         
         // when
         do {
-            try sut.groupedArray(2)
+            _ = try sut.groupedArray(2)
             XCTFail("Did not throw")
         }
-        catch CollectionClusteringError.SizeIsNotMultipleOfClusterSize {
+        catch CollectionClusteringError.sizeIsNotMultipleOfClusterSize {
             // pass
         }
         catch {
@@ -79,6 +82,6 @@ class CollectionsTests: XCTestCase {
         let result = try! sut.groupedArray(3)
         
         // then
-        XCTAssertEqual(result, [])
+        XCTAssertEqual(result.count, 0)
     }
 }

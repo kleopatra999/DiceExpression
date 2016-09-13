@@ -30,7 +30,7 @@ import DiceExpression
 extension DiceExpression {
     
     /// Rolls the dice multiple times and verify that it is within bounds
-    private func rollAndCheckResult(expectedMinimum expectedMinimum: Int, expectedMaximum: Int, expectedDifferentValues: Bool) {
+    fileprivate func rollAndCheckResult(expectedMinimum: Int, expectedMaximum: Int, expectedDifferentValues: Bool) {
         
         var previousResults: [Int:Int] = [:]
         
@@ -126,7 +126,7 @@ class DiceExpressionTests: XCTestCase {
                 let _ = try DiceExpression(expression)
                 XCTFail()
             }
-            catch DiceExpression.ParsingError.CanNotEndWithToken {
+            catch DiceExpression.ParsingError.canNotEndWithToken {
             }
             catch {
                 XCTFail("Unexpected error: \(error)")
@@ -145,7 +145,7 @@ class DiceExpressionTests: XCTestCase {
                 let _ = try DiceExpression(expression)
                 XCTFail()
             }
-            catch DiceExpression.ParsingError.CanNotEndWithToken {
+            catch DiceExpression.ParsingError.canNotEndWithToken {
             }
             catch {
                 XCTFail("Unexpected")
@@ -164,7 +164,7 @@ class DiceExpressionTests: XCTestCase {
                 let _ = try DiceExpression(expression)
                 XCTFail()
             }
-            catch DiceExpression.ParsingError.NotAValidToken {
+            catch DiceExpression.ParsingError.notAValidToken {
             }
             catch {
                 XCTFail("Unexpected")

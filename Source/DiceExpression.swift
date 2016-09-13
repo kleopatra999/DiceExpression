@@ -56,15 +56,15 @@ public struct DiceExpression : CustomStringConvertible, Rollable {
     public var description : String { return components.expression }
     
     /// Individual die expressions that form the final expression
-    private let components : [SignedDiceExpressionComponent]
+    fileprivate let components : [SignedDiceExpressionComponent]
     
-    public enum ParsingError : ErrorType {
+    public enum ParsingError : Error {
         /// Unable to parse a specific token of the expression
-        case NotAValidToken(token: String)
+        case notAValidToken(token: String)
         /// Two tokens can't be consecutive. E.g. there can't be two "+ +"
-        case TokenCanNotFollowToken(token1: String, token2: String)
+        case tokenCanNotFollowToken(token1: String, token2: String)
         /// The expression can't end with this token. E.g. an expression can't end with "+"
-        case CanNotEndWithToken(token: String)
+        case canNotEndWithToken(token: String)
     }
     
     /**
@@ -115,11 +115,11 @@ struct SignedDiceExpressionComponent {
     let component: DiceExpressionComponent
 }
 
-extension SequenceType where Generator.Element == SignedDiceExpressionComponent {
-    private var expression : String {
+extension Sequence where Iterator.Element == SignedDiceExpressionComponent {
+    fileprivate var expression : String {
         let fullString = self.reduce("") { $0 + $1.sign.description + $1.component.description }
         if fullString.hasPrefix(Sign.Plus.rawValue) {
-            return fullString.substringFromIndex(fullString.startIndex.advancedBy(Sign.Plus.rawValue.characters.count)) // remove initial "+" if present
+            return fullString.substring(from: fullString.characters.index(fullString.startIndex, offsetBy: Sign.Plus.rawValue.characters.count)) // remove initial "+" if present
         }
         return fullString
     }
@@ -135,7 +135,7 @@ extension DiceExpression {
 }
 
 /// From array of strings to tokens
-private func parseSignAndRollTokens(array: [String]) throws -> [SignedDiceExpressionComponent] {
+private func parseSignAndRollTokens(_ array: [String]) throws -> [SignedDiceExpressionComponent] {
     guard let firstElement = array.first else { return [] }
 
     let needToPrependPlusSign = Sign(rawValue: firstElement) == nil // not a sign
@@ -143,17 +143,18 @@ private func parseSignAndRollTokens(array: [String]) throws -> [SignedDiceExpres
     let arrayWithSign = (needToPrependPlusSign ? [Sign.Plus.rawValue] : []) + array
     
     guard let tuples = try? arrayWithSign.groupedArray(2) else {
-        throw DiceExpression.ParsingError.CanNotEndWithToken(token: arrayWithSign.last!)
+        throw DiceExpression.ParsingError.canNotEndWithToken(token: arrayWithSign.last!)
     }
+
     return try tuples.map { tuple in
         guard let sign = Sign(rawValue: tuple[0]) else {
-            throw DiceExpression.ParsingError.NotAValidToken(token: tuple[0])
+            throw DiceExpression.ParsingError.notAValidToken(token: tuple[0])
         }
         if let _ = Sign(rawValue: tuple[1]) {
-            throw DiceExpression.ParsingError.TokenCanNotFollowToken(token1: tuple[0], token2: tuple[1])
+            throw DiceExpression.ParsingError.tokenCanNotFollowToken(token1: tuple[0], token2: tuple[1])
         }
         guard let component = DiceExpressionComponent(tokenExpression: tuple[1]) else {
-            throw DiceExpression.ParsingError.NotAValidToken(token: tuple[1])
+            throw DiceExpression.ParsingError.notAValidToken(token: tuple[1])
         }
         return SignedDiceExpressionComponent(sign: sign, component: component)
     }
@@ -166,7 +167,7 @@ enum Sign : String  {
     case Minus = "-"
     
     /// Applies the sign to a value
-    func apply(value: Int) -> Int {
+    func apply(_ value: Int) -> Int {
         switch(self) {
         case .Plus: return value
         case .Minus: return -value
@@ -190,15 +191,15 @@ enum Sign : String  {
 enum DiceExpressionComponent {
     
     /// A proper dice roll, such as 3d6
-    case Dice(faces: UInt32, repetitions: UInt32)
+    case dice(faces: UInt32, repetitions: UInt32)
     
     /// A constant int value
-    case Constant(value: Int)
+    case constant(value: Int)
     
     /// Roll and returns result
     func roll() -> Int {
         switch(self) {
-        case let .Dice(faces, repetitions):
+        case let .dice(faces, repetitions):
             var total = 0
             for _ in 0..<repetitions {
                 if faces > 0 {
@@ -206,7 +207,7 @@ enum DiceExpressionComponent {
                 }
             }
             return total
-        case let .Constant(value):
+        case let .constant(value):
             return value
         }
     }
@@ -214,16 +215,16 @@ enum DiceExpressionComponent {
     /// Creates a dice token
     init?(tokenExpression: String) {
         if let constantValue = Int(tokenExpression) {
-            self = .Constant(value: constantValue)
+            self = .constant(value: constantValue)
             return
         }
         else {
-            let splitted = tokenExpression.componentsSeparatedByString("d")
+            let splitted = tokenExpression.components(separatedBy: "d")
             if(splitted.count != 2) {
                 return nil
             }
             if let faces = UInt32(splitted[1]), let repetitions = UInt32(splitted[0]) {
-                self = .Dice(faces: faces, repetitions: repetitions)
+                self = .dice(faces: faces, repetitions: repetitions)
                 return
             }
             else {
@@ -234,9 +235,9 @@ enum DiceExpressionComponent {
     
     var description : String {
         switch(self) {
-        case let .Dice(faces, repetitions):
+        case let .dice(faces, repetitions):
             return "\(repetitions)d\(faces)"
-        case let .Constant(value):
+        case let .constant(value):
             return "\(value)"
         }
     }
@@ -247,10 +248,10 @@ enum DiceExpressionComponent {
 extension String {
     
     /// Splits a string into parsing tokens
-    private var diceExpressionStringTokens : [String] {
+    fileprivate var diceExpressionStringTokens : [String] {
         var buffer = ""
         var foundTokens : [String] = []
-        for c in self.lowercaseString.characters {
+        for c in self.lowercased().characters {
             switch(c) {
             case " ": fallthrough
             case "\t":
