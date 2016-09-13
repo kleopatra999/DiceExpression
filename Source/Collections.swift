@@ -26,13 +26,13 @@
 
 import Foundation
 
-enum CollectionClusteringError : ErrorType {
+enum CollectionClusteringError : Error {
     
     /// When clustering a collection, the size of the collection was not a multiple of the cluster size
-    case SizeIsNotMultipleOfClusterSize
+    case sizeIsNotMultipleOfClusterSize
 }
 
-extension CollectionType where Index.Distance == Int, Index == Int {
+extension Collection where IndexDistance == Int, Index == Int {
     
     /**
      Returns an array of elements from the collection grouped in clusters of the given size, 
@@ -51,9 +51,9 @@ extension CollectionType where Index.Distance == Int, Index == Int {
      - Throws: `CollectionGroupingError.SizeIsNotMultipleOfGroupSize` if the size of the collection is not a multiple of the cluster size
      
     */
-    func groupedArray(clusterSize: Int) throws -> [[Generator.Element]] {
+    func groupedArray(_ clusterSize: Int) throws -> [[Iterator.Element]] {
         
-        guard (self.count % clusterSize) == 0 else { throw CollectionClusteringError.SizeIsNotMultipleOfClusterSize }
+        guard (self.count % clusterSize) == 0 else { throw CollectionClusteringError.sizeIsNotMultipleOfClusterSize }
     
         let numberOfGroups = self.count / clusterSize
         let groupIndexes = (0..<numberOfGroups)

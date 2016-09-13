@@ -52,7 +52,7 @@ public struct ResultWithLog<ResultType> {
      - Param: logs multiple logs that will be concatenated into one
      
     */
-    public init<S: SequenceType where S.Generator.Element == String>(result : ResultType, logs: S) {
+    public init<S: Sequence>(result : ResultType, logs: S) where S.Iterator.Element == String {
         self.result = result
         self.logs = logs.reduce("") { "\($0)\($1)\n"}
     }

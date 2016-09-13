@@ -36,7 +36,7 @@ public struct RandomTable<Choice> {
     public let table : [ChoiceWeight]
     
     /// Total weight for all choices in the table
-    private let totalWeight : UInt32
+    fileprivate let totalWeight : UInt32
     
     /// Creates a random table from a list of choices and weights.
     /// - warning: the sum of all the weights must be less than the maximum
