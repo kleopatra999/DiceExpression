@@ -197,7 +197,7 @@ extension RandomTests {
         
         // then
         XCTAssertEqual(choice.count, 2)
-        XCTAssertEqual(pool, choice.sort())
+        XCTAssertEqual(pool, choice.sorted())
     }
     
     func testThatItReturnsAllElementWhenPickingManyFromAnArrayOfTheExactSize() {
@@ -210,7 +210,7 @@ extension RandomTests {
         
         // then
         XCTAssertEqual(choice.count, pool.count)
-        XCTAssertEqual(pool, choice.sort())
+        XCTAssertEqual(pool, choice.sorted())
     }
     
     func testThatItReturnsAllElementWhenPickingSome() {
